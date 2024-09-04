@@ -1,9 +1,10 @@
 # A short-course on versatile processing and inversion of geoelectrical monitoring data
-## Material for a [pyGIMLi][pg] workshop at the 7<sup>th</sup> international workshop on geoelectrical monitoring ([GELMON 2025][gelmon])
+## Material for a [pyGIMLi][pg] short course at the 7<sup>th</sup> international workshop on geoelectrical monitoring ([GELMON 2025][gelmon])
 
 **Instructors:**
 Florian Wagner<sup>1</sup>,
-Thomas Günther<sup>2</sup>
+Thomas Günther<sup>2</sup>,
+Nico Skibbe<sup>2</sup>,
 and
 Nino Menzel<sup>1</sup>
 
