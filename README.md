@@ -3,8 +3,8 @@
 
 **Instructors:**
 Florian Wagner<sup>1</sup>,
-Thomas Günther<sup>2</sup>,
-Nico Skibbe<sup>2</sup>,
+Thomas Günther<sup>2 (3)</sup>,
+Nico Skibbe<sup>3</sup>,
 and
 Nino Menzel<sup>1</sup>
 
@@ -12,6 +12,9 @@ Nino Menzel<sup>1</sup>
 > Geophysical Imaging and Monitoring, RWTH Aachen University, Germany
 > <br>
 > <sup>2</sup>
+> Institute for Geophysics and Geoinformatics, TU Bergakademie Freiberg, Germany
+> <br>
+> <sup>3</sup>
 > LIAG Institute for Applied Geophysics, Hannover, Germany
 > <br>
 
