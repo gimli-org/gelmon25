@@ -33,7 +33,7 @@ As preparation, you might want to have a look at the existing tutorials from SWU
 
 all of them accompagnied with Youtube videos and Jupyter Notebooks.
 Some of these tutorials already cover the TOPIC of ERT using the [ERT module](https://www.pygimli.org/pygimliapi/_generated/pygimli.physics.ert.html)
-On the [pyGIMLi website](https://www.pygimli.org), there are quite a few [ERT examples](https://www.pygimli.org/_examples_auto/index.html#electrical-resistivity-tomography)
+On the [pyGIMLi website](https://www.pygimli.org), there are quite a few [ERT examples](https://www.pygimli.org/_examples_auto/index.html#electrical-resistivity-tomography), of which, however only one is about timelapse ERT. There is another repository, https://github.com/gimli-org/timelapseERT to collect datasets and corresponding notebooks using the `TimelapseERT` class from the ERT module.
 
 ## Installation
 
