@@ -32,6 +32,9 @@ As preparation, you might want to have a look at the existing tutorials from SWU
 * [SEG Webinar 2024](https://github.com/gimli-org/SEGwebinar): pyGIMLi - Open-source Research & Teaching Software
 
 all of them accompagnied with Youtube videos and Jupyter Notebooks.
+Some of these tutorials already cover the TOPIC of ERT using the [ERT module](https://www.pygimli.org/pygimliapi/_generated/pygimli.physics.ert.html)
+On the [pyGIMLi website](https://www.pygimli.org), there are quite a few [ERT examples](https://www.pygimli.org/_examples_auto/index.html#electrical-resistivity-tomography)
+
 
 [gelmon]: https://www.geophysik.at/gelmon/
 [pg]: https://www.pygimli.org
