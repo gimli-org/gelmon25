@@ -20,8 +20,8 @@ Nino Menzel<sup>1</sup>
 
 ## About
 
-The [7<sup>th</sup> international workshop on geoelectrical monitoring (GELMON 2025)][gelmon] will be held in Vienna February 17<sup>th</sup> - 20<sup>th</sup> 2025.
-This will include a pyGIMLi workshop on open-source and versatile processing and time-lapse inversion of geoelectrical monitoring data.
+The [7<sup>th</sup> international workshop on geoelectrical monitoring (GELMON 2025)][gelmon] will be held in Vienna February 18<sup>th</sup> - 20<sup>th</sup> 2025.
+It starts, on February 17 between 9 a.m. and 4 p.m., with a `pyGIMLi` workshop focusing on open-source and versatile processing and time-lapse inversion of geoelectrical monitoring data.
 
 > [!NOTE]  
 > Please note that this repository currently serves as a placeholder. More information on the workshop content including slides and Jupyter Notebooks are currently being prepared and will be made available here in early 2025.
