@@ -29,7 +29,7 @@ author:
     orcid: 0000-0001-7407-9741
     email: nino@pygimli.org
     affiliations: RWTH Aachen University, Germany
-date: 2025-02-17
+date: "Vienna, February 17, 2025 (GELMON workshop)"
 bibliography: refs.bib
 ---
 
@@ -62,13 +62,13 @@ process-based inversions** with **region-specific regularization**
 ## {{< fa backward >}} Existing tutorials
 
 ::: {.columns}
-::: {.column .incremental}
-- [Transform 2021](http://transform21.pygimli.org):   creating geometries & meshes, modeling PDEs,  synthetic data creation, inversion (also with external forward operators).
-- [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), geostatistical vs. smoothness regularization, treatment of subsurface regions, adding prior data.
+::: {.column .incremental width="55%"}
+- [Transform 2021](http://transform21.pygimli.org): creating **geometries & meshes**, **modeling** PDEs, **synthetic data**, **inversion** (also with **external forward operator**).
+- [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), **geostatistical** vs. smoothness regularization, treatment of subsurface **regions**, adding **prior data**.
 - [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice. 
-- **Today** (GELMON) we focus on Timelapse ERT data processing & inversion.
+- **Today** we practise & focus on ERT monitoring data processing & inversion.
 :::
-::: {.column}
+::: {.column width="45%"}
 ![](images/youtube.jpg){width=90%}
 :::
 :::
@@ -89,6 +89,19 @@ process-based inversions** with **region-specific regularization**
 - Many **new papers using pyGIMLi** (<https://pygimli.org/publist.html>)
 :::
 
+## New since v1.5.0 (SEG webinar)
+
+https://github.com/gimli-org/gimli/releases
+
+- enabled `pip install pygimli` for easier installation (e.g. on Google Colab)
+- new **examples** (e.g. reciprocals) and improved old ones
+- better access to **Jacobian, resolution matrices** etc.
+- quite some **syntactic sugar** to ease life (`data.show('i')`, `mesh.show('res')`)
+- new **mesh functions**: `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()` 
+- new **matrix types**, e.g. for BFGS inversion
+- fully **complex-valued** (FD) ERT-IP inversion (also for TD)
+- improvements in **gravity, magnetics and TDEM**
+- a lot of of bug fixes and improved docstrings
 
 ## {{< fa people-group >}} Join the pyGIMLi user community!
 
@@ -113,20 +126,20 @@ process-based inversions** with **region-specific regularization**
 
 ## {{< fa rocket >}} How to get started
 
-1. Open the [Anaconda Prompt](https://docs.anaconda.com/free/anaconda/install/) ({{< fa brands windows >}}) or a Terminal ({{< fa brands apple >}}/{{< fa brands linux >}}).
-2. Clone the [`SEGwebinar`](https://seg24.pygimli.org) repository.
+1. Open [Miniforge Prompt](https://docs.anaconda.com/free/anaconda/install/) ({{< fa brands windows >}}) or a Terminal ({{< fa brands apple >}}/{{< fa brands linux >}}).
+2. Clone the [`GELMON25`](https://gelmon25.pygimli.org) repository.
 
 ``` bash
-git clone https://github.com/gimli-org/SEGwebinar.git
-cd SEGwebinar
+git clone https://github.com/gimli-org/gelmon25.git
+cd gelmon25
 ```
-3. Install the `pg` environment with the required dependencies (in particular `pygimli=1.5.0`).
+3. Install the `pg` environment with required dependencies (particularly `pygimli=1.5.3`).
 
 ``` bash
 conda env create
 ````
 
-4. Activate the environment and start a [Jupyter Notebook](https://jupyter.org).
+4. Activate environment and start a [Jupyter Notebook](https://jupyter.org).
 
 ``` bash
 conda activate pg
@@ -135,7 +148,7 @@ jupyter notebook
 
 ::: {.callout-tip}
 ## Follow without a local installation
-You can also visit <https://colab.research.google.com>, open an empty notebook and type `!pip install pygimli`.
+You can also visit <https://colab.research.google.com>, open an empty notebook and type `!pip install pygimli tetgen`.
 :::
 
 ## {{< fa forward >}} Let's go!
@@ -157,3 +170,4 @@ You can also visit <https://colab.research.google.com>, open an empty notebook a
 
 ::: {#refs}
 :::
+
