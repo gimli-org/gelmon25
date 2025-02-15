@@ -54,7 +54,10 @@ process-based inversions** with **region-specific regularization**
 :::
 :::
 
-# pyGIMLi aims to make:
+# pyGIMLi 
+
+aims at making:
+
 - easy things easy
 - hard things possible
 - everything transparent and reproducible
@@ -96,9 +99,10 @@ https://github.com/gimli-org/gimli/releases
 - enabled `pip install pygimli` for easier installation (e.g. on Google Colab)
 - new **examples** (e.g. reciprocals) and improved old ones
 - better access to **Jacobian, resolution matrices** etc.
-- quite some **syntactic sugar** to ease life (`data.show('i')`, `mesh.show('res')`)
+- **syntactic sugar** (`data.show('i')`, `mesh.show('res')`, `data.estimateError()`)
 - new **mesh functions**: `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()` 
-- new **matrix types**, e.g. for BFGS inversion
+- new **matrix types**, e.g. for BFGS-based inversion
+- different inversion frameworks (SD, NLCG, GN, L_BFGS, BFGS)
 - fully **complex-valued** (FD) ERT-IP inversion (also for TD)
 - improvements in **gravity, magnetics and TDEM**
 - a lot of of bug fixes and improved docstrings
@@ -123,6 +127,55 @@ https://github.com/gimli-org/gimli/releases
 6. **Contribute to the code** as described in [our contribution guidelines.](https://pygimli.org/contrib.html)
 :::
 :::
+
+# The `ERT` module
+
+- import and export of various formats
+- utility functions and data visualization
+- array generation and synthetic model simulation
+- `ERTManager` for data inversion and model output
+- `ERTIPManager` for FD or TD Induced Polarization (IP)
+- spectral IP analysis in `pyBERT` module (`FDIP` and `TDIP`)
+
+## The `TimelapseERT` class
+
+- designed for surface ERT data (crosshole: `CrossholeERT`)
+- different import formats and export of filtered data
+- extract data time series with `.showTimeline()`
+- extensive filter function (`t`, `tmin`, `tmax`, `kmax`)
+- masking of data with app. resistivity & error bounds (`.mask()`)
+- automatic masking based on harmonic filtering
+- different types of data visualization and PDF generation
+- temporal fitting of reciprocal error models
+- invert single timesteps, sequentially or full ("4D" inversion)
+
+## The `CrossholeERT` class
+
+- based on `TimelapseERT` with some extra function
+- different visualization methods
+- adapted mesh generation 
+- attributes electrodes to boreholes
+- `extractSubset` to retrieve (3D) parts or (2D) planes
+
+
+## Timelapse ERT repository
+
+{{< fa gift >}} collect published data sets and notebooks
+
+|Name        |Reference            |dim  |time|data |Info             |
+|------------|---------------------|---  |---:|----:|-----------------|
+|pyGIMLi     |@Ruecker2017         |2D   |  10|  740|synthetic tracer |
+|Hillslope   |@Huebner2015         |2D   |  24|  800|min. length      |
+|ALERT       |Kuras et al. (2009)  |2D xh|  35| 1200|9 boreholes      |
+|Infiltration|@Huebner2017         |3D   | 200| 2850|min. length      |
+|Tsunami     |Ronczka et al. (2014)|2.5D | 900|  225|lab experiment   |
+|Steelcase   |@Ronczka2015         |3D sc|   9|  450|SEM, regions     |
+|SAMOS       |@Ronczka2020         |1.5D |   7| 3000|CEM              |
+|TestUM      |Birnstengel et al. ()|3D xh|  70| 2200|heat experiment  |
+|DynaDeep    |Skibbe et al. ()     |2D   |  10| 3000|topography change|
+
+
+  <!-- Hübner et al. (2015) -->
 
 ## {{< fa rocket >}} How to get started
 
