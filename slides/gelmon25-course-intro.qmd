@@ -13,29 +13,25 @@ format:
     highlight-style: solarized
     code-line-numbers: false
 author:
-  - name: Florian Wagner
-    orcid: 0000-0001-7407-9741
-    email: florian@pygimli.org
-    affiliations: RWTH Aachen University, Germany
   - name: Thomas Günther
     orcid: 0000-0001-5409-0273
     email: thomas@pygimli.org
     affiliations: TU Bergakademie Freiberg, Germany
   - name: Nico Skibbe
-    orcid: 0000-0001-5409-0273
-    email: nico@pygimli.org
+    orcid: 0000-0002-4628-4518
+    email: nico.skibbe@liag-institut.de
     affiliations: LIAG, Hannover, Germany
   - name: Nino Menzel
-    orcid: 0000-0001-7407-9741
-    email: nino@pygimli.org
+    orcid: 0009-0000-5495-3235
+    email: nino.menzel@gim.rwth-aachen.de #nino@pygimli.org
     affiliations: RWTH Aachen University, Germany
 date: "Vienna, February 17, 2025 (GELMON workshop)"
 bibliography: refs.bib
+csl: apa.csl
 ---
-
 ## {{< fa toolbox >}} py**GIMLi** is a versatile open-source toolbox with:
 ::: {.columns}
-::: {.column width="65%" .incremental}
+::: {.column width="65%" .noincremental}
 - management tools for **structured and unstructured meshes** in 2D & 3D
 - computationally efficient **finite-element and finite-volume solvers**
 - **various geophysical forward operators**: ERT/IP, Traveltime, Gravimetry, Magnetics, SP, EM
@@ -43,7 +39,7 @@ bibliography: refs.bib
 process-based inversions** with **region-specific regularization**
 - **open-source, platform compatible**, documented & tested code
 - suitability for **teaching & reproducible research**
-- 1.0 version published in 2017 in *Computers and Geosciences* [@Ruecker2017] [(and among the *Most Downloaded* papers since, > 330 citations, > 100 uses in peer-reviewed papers)]{.muted}
+- 1.0 version published in 2017 in *Computers and Geosciences* [@Ruecker2017] [(and among the *Most Downloaded* papers since, > 430 citations, > 120 uses in peer-reviewed papers)]{.muted}
 :::
 ::: {.column width="30%"}
 ::: {.r-stack}
@@ -65,7 +61,7 @@ aims at making:
 ## {{< fa backward >}} Existing tutorials
 
 ::: {.columns}
-::: {.column .incremental width="55%"}
+::: {.column .noincremental width="55%"}
 - [Transform 2021](http://transform21.pygimli.org): creating **geometries & meshes**, **modeling** PDEs, **synthetic data**, **inversion** (also with **external forward operator**).
 - [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), **geostatistical** vs. smoothness regularization, treatment of subsurface **regions**, adding **prior data**.
 - [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice. 
@@ -76,11 +72,11 @@ aims at making:
 :::
 :::
 
-## {{< fa gift >}} What is new since?
+## {{< fa newspaper >}} What is new since?
 
-::: {.incremental}
-- Transform '21 & '22 notebooks available as tutorials or examples on [pygimli.org](https://pygimli.org)
-- **Improved 3D visualization** powered by [pyvista](https://pyvista.org) (including filters, slices and interactive notebook compatibility)
+::: {.noincremental}
+- Transform '21 & '22 notebooks available as **tutorials** or **examples** on [pygimli.org](https://pygimli.org)
+- **Improved 3D visualization** powered by [pyvista](https://pyvista.org) (filters, slices, interactivity)
 - **3D gravity and (full-tensor) magnetics** operators and managers
 - **New matrices and matrix generators**, e.g. non-explicit (PDE-based) Jacobian matrix
 - `LSQRinversion` framework to include parameter relations [from @Wagner2019]
@@ -92,7 +88,7 @@ aims at making:
 - Many **new papers using pyGIMLi** (<https://pygimli.org/publist.html>)
 :::
 
-## New since v1.5.0 (SEG webinar)
+## {{< fa newspaper >}} New since v1.5.0 (SEG webinar)
 
 https://github.com/gimli-org/gimli/releases
 
@@ -100,9 +96,9 @@ https://github.com/gimli-org/gimli/releases
 - new **examples** (e.g. reciprocals) and improved old ones
 - better access to **Jacobian, resolution matrices** etc.
 - **syntactic sugar** (`data.show('i')`, `mesh.show('res')`, `data.estimateError()`)
-- new **mesh functions**: `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()` 
+- new **mesh functions**:<br> e.g., `submesh()`, `extract2dUpperSurfaceMesh()`, `extract2dSlice()` 
 - new **matrix types**, e.g. for BFGS-based inversion
-- different inversion frameworks (SD, NLCG, GN, L_BFGS, BFGS)
+- different **inversion frameworks** (SD, NLCG, GN, L_BFGS, BFGS)
 - fully **complex-valued** (FD) ERT-IP inversion (also for TD)
 - improvements in **gravity, magnetics and TDEM**
 - a lot of of bug fixes and improved docstrings
@@ -118,7 +114,7 @@ https://github.com/gimli-org/gimli/releases
 > *– Linus Torvalds*
 :::
 
-::: {.column width="40%" .incremental}
+::: {.column width="40%" .noincremental}
 1. **Join the `#pyGIMLi` chat** on [Mattermost](https://softwareunderground.org/mattermost)!
 2. **Open a discussion** or **raise an issue** [on {{< fa brands github >}} GitHub](https://github.com/gimli-org/gimli).
 3. **Contribute to the website** via the "Improve this page" button in the right sidebar.
@@ -128,7 +124,7 @@ https://github.com/gimli-org/gimli/releases
 :::
 :::
 
-# The `ERT` module
+# The code base -- `ERT` module
 
 - import and export of various formats
 - utility functions and data visualization
@@ -137,7 +133,7 @@ https://github.com/gimli-org/gimli/releases
 - `ERTIPManager` for FD or TD Induced Polarization (IP)
 - spectral IP analysis in `pyBERT` module (`FDIP` and `TDIP`)
 
-## The `TimelapseERT` class
+## {{< fa code >}} The `TimelapseERT` class
 
 - designed for surface ERT data (crosshole: `CrossholeERT`)
 - different import formats and export of filtered data
@@ -149,52 +145,50 @@ https://github.com/gimli-org/gimli/releases
 - temporal fitting of reciprocal error models
 - invert single timesteps, sequentially or full ("4D" inversion)
 
-## The `CrossholeERT` class
+## {{< fa code >}} The `CrossholeERT` class
 
-- based on `TimelapseERT` with some extra function
+- based on `TimelapseERT` with some extra functions
 - different visualization methods
 - adapted mesh generation 
 - attributes electrodes to boreholes
 - `extractSubset` to retrieve (3D) parts or (2D) planes
 
+{{< fa code >}} Make whole processing chain transparent and reproducible
 
-## Timelapse ERT repository
+## {{< fa github >}} [TimelapseERT](https://github.com/gimli-org/timelapseERT) repository
 
-{{< fa gift >}} collect published data sets and notebooks
+[Repository](https://github.com/gimli-org/timelapseERT) collect published data sets and notebooks
 
 |Name        |Reference            |dim  |time|data |Info             |
 |------------|---------------------|---  |---:|----:|-----------------|
-|pyGIMLi     |@Ruecker2017         |2D   |  10|  740|synthetic tracer |
-|Hillslope   |@Huebner2015         |2D   |  24|  800|min. length      |
-|ALERT       |Kuras et al. (2009)  |2D xh|  35| 1200|9 boreholes      |
-|Infiltration|@Huebner2017         |3D   | 200| 2850|min. length      |
-|Tsunami     |Ronczka et al. (2014)|2.5D | 900|  225|lab experiment   |
-|Steelcase   |@Ronczka2015         |3D sc|   9|  450|SEM, regions     |
-|SAMOS       |@Ronczka2020         |1.5D |   7| 3000|CEM              |
-|TestUM      |Birnstengel et al. ()|3D xh|  70| 2200|heat experiment  |
-|DynaDeep    |Skibbe et al. ()     |2D   |  10| 3000|topography change|
-
-
-  <!-- Hübner et al. (2015) -->
+|pyGIMLi     |[@Ruecker2017]       |2D   |  10|  740|synthetic tracer |
+|ALERT       |[@Kuras2009]         |2D xh|  35| 1200|9 boreholes      |
+|Hillslope   |[@Huebner2015]       |2D to|  24|  800|min. length      |
+|Infiltration|[@Huebner2017]       |3D   | 200| 2850|min. length      |
+|Tsunami     |[@Ronczka2014]       |2.5D | 900|  225|lab experiment   |
+|Steelcase   |[@Ronczka2015]       |3D sc|   9|  450|SEM, regions     |
+|SAMOS       |[@Ronczka2020]       |1.5D |   7| 3000|CEM              |
+|DynaDeep    |Skibbe talk          |2D to|  10| 3000|topography change|
+|TestUM      |Günther talk         |3D xh|  70| 2200|heat experiment  |
 
 ## {{< fa rocket >}} How to get started
 
 1. Open [Miniforge Prompt](https://docs.anaconda.com/free/anaconda/install/) ({{< fa brands windows >}}) or a Terminal ({{< fa brands apple >}}/{{< fa brands linux >}}).
 2. Clone the [`GELMON25`](https://gelmon25.pygimli.org) repository.
 
-``` bash
+```bash
 git clone https://github.com/gimli-org/gelmon25.git
 cd gelmon25
 ```
 3. Install the `pg` environment with required dependencies (particularly `pygimli=1.5.3`).
 
-``` bash
+```bash
 conda env create
 ````
 
 4. Activate environment and start a [Jupyter Notebook](https://jupyter.org).
 
-``` bash
+```bash
 conda activate pg
 jupyter notebook
 ```
@@ -204,22 +198,41 @@ jupyter notebook
 You can also visit <https://colab.research.google.com>, open an empty notebook and type `!pip install pygimli tetgen`.
 :::
 
-## {{< fa forward >}} Let's go!
+## {{< fa forward >}} The infiltration case (s. also SEG webinar)
 ::: {.columns}
-::: {.column width="50%" style="font-size: 140%;" .incremental}
+::: {.column width="50%" style="font-size: 120%;" .noincremental}
 
-1. A single story with timelapse ERT data
-2. Load, process and visualize data
-3. Work on different meshes
-4. Use different regularization approaches
-5. Add prior information and petrophysics
-6. Visualize results in 2D and 3D
-7. Time-lapse inversion
+1. Load, process, visualize data
+1. Test different meshes
+1. Different regularizations 
+1. Add prior information 
+1. petrophysics
+1. Visualize results in 2D & 3D
+1. Time-lapse inversion
 :::
 ::: {.column width="50%"}
-![*Source:* @Huebner2017](images/survey.png){width="100%"}
+![Survey layout after @Huebner2017](images/survey1.png){width="100%"}
 :::
 :::
+
+## {{< fa forward >}} The heat case (s. also talk)
+::: {.columns}
+::: {.column width="50%" style="font-size: 120%;" .noincremental}
+
+1. Load, process, visualize data
+1. Test different meshes
+1. Different regularizations 
+1. Add prior information 
+1. petrophysics
+1. Visualize results in 2D & 3D
+1. Time-lapse inversion
+:::
+::: {.column width="50%"}
+![Temperature distribution crosshole ERT](images/heat-simple.png){width="100%"}
+:::
+:::
+
+## References
 
 ::: {#refs}
 :::
