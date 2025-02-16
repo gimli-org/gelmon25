@@ -1,10 +1,11 @@
 ---
 title: "![](images/gimli_logo.png){width='50%'}"
 subtitle: A short course on versatile processing & inversion of ERT monitoring data
+output-dir: ../docs
 format:
   letterbox-revealjs:
     theme: [default, _extensions/grantmcdermott/clean/clean.scss]
-    self-contained: true
+    # self-contained: true
     slide-number: true
     logo: images/gimli_logo.png
     footer: <https://gelmon25.pygimli.org>
@@ -197,6 +198,25 @@ jupyter notebook
 ## Follow without a local installation
 You can also visit <https://colab.research.google.com>, open an empty notebook and type `!pip install pygimli tetgen`.
 :::
+
+# Practising
+{{< fa forward >}} Let's find out what you already know and what you're interested in!
+
+## Do you know it and if no do you want to learn it?
+
+- array generation and sensitivity distribution
+- mesh generation and synthetic modelling 
+- field data inversion 
+- error estimation and reciprocal data analysis 
+- structural constraints in
+- using petrophysical relations
+- a-priori constraints
+- image appraisal (resolution and DOI)
+- basic timelapse strategies 
+- automated timelapse processing
+- complex conductivity inversion 
+- spectral (FD or TD) inversion of DC/IP data 
+
 
 ## {{< fa forward >}} The infiltration case (s. also SEG webinar)
 ::: {.columns}
