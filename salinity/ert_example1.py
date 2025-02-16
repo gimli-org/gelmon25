@@ -10,7 +10,7 @@ from pygimli.physics import ert
 
 # %% Part 1/5: Data import
 data = pg.DataContainerERT()
-data.load('data/example1.dat')
+data.load('data.dat')
 # pg.show(data)
 
 # %% Part 2/5: Estimate error
@@ -20,7 +20,6 @@ data['err'] = ert.estimateError(
     absoluteUError=5e-5)
 
 data.show('err')
-asdf
 
 # %% Part 3/5: ERT Manager
 mgr = ert.ERTManager(data)
@@ -51,5 +50,6 @@ results = {
     'rrms': mgr.inv.relrms(),
     'error': data['err']
     }
-np.savez('results/ert_example1.npz', **results)
-mgr.paraDomain.save('results/mesh_example1.bms')
+np.savez('ert_example1.npz', **results)
+mgr.paraDomain.save('paraDomain.bms')
+mgr.mesh.save('mesh.bms')
