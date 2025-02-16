@@ -154,6 +154,9 @@ inv.dataTrans = pg.trans.TransLog()
 inv.modelTrans = pg.trans.TransCotLU(*sal_limits)
 inv.setRegularization(1, background=True)
 
+# inv.setRegularization(
+#     2, correlationLengths=[15, 4], limits=sal_limits)
+
 inv.setRegularization(
     2, zWeight=0.1, limits=sal_limits)
 
