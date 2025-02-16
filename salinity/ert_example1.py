@@ -37,7 +37,7 @@ pg.show(mgr.paraDomain)
 
 # %% Part 4/5: Inversion
 mgr.inv.setRegularization(2, zWeight=0.1)
-inv_param = {'lam': 20,
+inv_param = {'lam': 100,
              'startmodel': np.median(data["rhoa"])}
 mgr.invert(**inv_param)
 

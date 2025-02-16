@@ -57,17 +57,17 @@ mgr = ert.ERTManager(data)
 mgr.setMesh(mesh)
 
 # %% formation factor
-# find cells of inversion domain
-which = mesh.cellMarkers() == 2
-# cell midpoints of inversion domain
-z_array = pg.y(mesh.cellCenter()).array()[which]
+# # find cells of inversion domain
+# which = mesh.cellMarkers() == 2
+# # cell midpoints of inversion domain
+# z_array = pg.y(mesh.cellCenter()).array()[which]
 
-# simple 1D model with 2 values
-f_factors = [4.25, 5.56]
-f_depth = 13.95
+# # simple 1D model with 2 values
+# f_factors = [4.25, 5.56]
+# f_depth = 13.95
 
-formation = np.ones_like(z_array) * f_factors[0]
-formation[z_array < -f_depth] = f_factors[1]
+# formation = np.ones_like(z_array) * f_factors[0]
+# formation[z_array < -f_depth] = f_factors[1]
 
 # np.savetxt('formation.txt', formation)
 # %% temperature
@@ -76,13 +76,17 @@ formation[z_array < -f_depth] = f_factors[1]
 # import src
 # from datetime import datetime
 # campaign_date = datetime(2022, 12, 5)
-# temperature = src.samos.getInsituTemperature(z_array, campaign_date)
+# cell_x = pg.x(mesh.cellCenters()).array()[which]
+# topo = src.ert.getTopoVal(mesh, cell_x)
+# diff = src.cfg.height['SAMOS'] - topo
+# temperature = src.samos.getInsituTemperature(
+#     z_array + diff, campaign_date)
 # np.savetxt('temperature.txt', temperature)
 
-# formation = np.loadtxt('formation.txt')
+formation = np.loadtxt('formation.txt')
 temperature = np.loadtxt('temperature.txt')
 
-# pg.show(mgr.paraDomain, data=temperature, cMap='bwr', cMin=0, cMax=20)
+pg.show(mgr.paraDomain, data=temperature, cMap='bwr', cMin=0, cMax=20)
 # pg.show(mesh)
 
 # %% salinity transformation
@@ -153,7 +157,7 @@ inv.setRegularization(1, background=True)
 inv.setRegularization(
     2, zWeight=0.1, limits=sal_limits)
 
-model = inv.run(data_array, error_array, startModel=10, lam=20)
+model = inv.run(data_array, error_array, startModel=10, lam=100)
 
 # %% Part 5/n: Save model, response and coverage
 
