@@ -1,0 +1,118 @@
+---
+title: "![](images/gimli_logo.png){width='50%'}"
+subtitle: Versatile processing & inversion of ERT monitoring data - Image appraisal
+format:
+  letterbox-revealjs:
+    theme: [default, _extensions/grantmcdermott/clean/clean.scss]
+    self-contained: true
+    slide-number: true
+    logo: images/gimli_logo.png
+    footer: <https://gelmon25.pygimli.org>
+    background-image: https://www.pygimli.org/_static/bg_light.png
+    menu: false
+    highlight-style: solarized
+    code-line-numbers: false
+author:
+  - name: Florian Wagner
+    orcid: 0000-0001-7407-9741
+    email: florian@pygimli.org
+    affiliations: RWTH Aachen University, Germany
+  - name: Thomas Günther
+    orcid: 0000-0001-5409-0273
+    email: thomas@pygimli.org
+    affiliations: TU Bergakademie Freiberg, Germany
+  - name: Nico Skibbe
+    orcid: 0000-0001-5409-0273
+    email: nico@pygimli.org
+    affiliations: LIAG, Hannover, Germany
+  - name: Nino Menzel
+    orcid: 0009-0000-5495-3235
+    email: nino@pygimli.org
+    affiliations: RWTH Aachen University, Germany
+date: "Vienna, February 17, 2025 (GELMON workshop)"
+bibliography: refs.bib
+---
+
+## {{< fa bullseye >}} Goals of this part of the workshop 
+
+::: {.incremental}
+-   Get familiar with py**GIMLi**'s quality assessment tools
+
+-   Plot and examine sensitivities of single four-point configurations
+
+-   Utilize evaluation parameters as "cutoff" for the visualization
+
+-   Visualize image quality with depth (1D)
+
+-   **Advanced section**: Depth of Investigation (Oldenburg and Li, 1999)
+:::
+
+
+
+## {{< fa table >}} Basic terminology: Jacobian matrix:
+::: {.columns}
+::: {.column width="50%" .incremental}
+-   For a set of transform equations: $$y_{i} = y_{i}(x_{1}, x_{2}, \dots, x_{N})$$, the Jacobian matrix is defined as: $$\displaystyle{\displaylines{{\displaystyle {\textbf {J}}=\left\|J_{ik}\right\|=\left\|{\frac {\partial y_{i}}{\partial x_{k}}}\right\|}.}}$$
+
+-  measure of the change in the ith data point as the kth parameter is changed 
+-  measure of how strongly data depend on a parameter -> sensitivity 
+
+:::
+::: {.column width="50%" .incremental}
+![](images/Jacobi_draft.PNG)
+:::
+:::
+
+## {{< fa table >}} Basic terminology: Jacobian matrix:
+::: {.columns}
+::: {.column width="50%" .incremental}
+-   Single row: **sensitivity distribution of singular measurement** over whole model space
+-   Sum of single column: **sum of sensitivities** in a particular model cell (for all measurements of the dataset)
+-   Starting point for **sensitivity-based quality assessment methods** 
+
+:::
+::: {.column width="50%" .incremental}
+![](images/Jacobi_draft_row.PNG)
+:::
+:::
+
+
+## {{< fa arrow-up-from-ground-water >}} Basic terminology: Depth of Investigation:
+::: {.incremental}
+-   generally refers to the depth of the model space, **"below which surface data are insensitive to the value of the physical property"** 
+-   **interpretation of features below this depth should be handled with care**, since they might not be geologically feasible
+
+-   if we consider two inversion results that are carried out with **two different, homogeneous reference models** and their inverse models $m_1$ and $m_2$, the DOI is computed by:
+$$
+R(x, z)=\frac{m_{1}(x, z)-m_{2}(x, z)}{m_{1 r}-m_{2 r}}
+$$
+
+-   **R will approach 0** where the **data constrain the model**
+-> inversion does not significantly depend on the defined reference model, inverse model provides **reliable information in those model areas**.
+:::
+
+::: {style="font-size: 75%;" .incremental}
+Oldenburg, D. W., & Li, Y. (1999). Estimating depth of investigation in DC resistivity and IP surveys. _Geophysics_. Society of Exploration Geophysicists.
+:::
+
+
+## {{< fa forward >}} Happy hacking!
+::: {.incremental}
+1. Extract and visualize single sensitivities
+2. Plot coverage
+3. Use coverage to adapt visualization inverse model
+4. Examine image quality with depth at a specific location
+5. Implement the DOI according to Oldenburg and Li (1999)
+:::
+
+## {{< fa flag-checkered >}} Takeaway messages:
+:::{.incremental}
+- We visualized the **sensitivities of single four point arrays** on the model space and underlined **differences in the distribution** based on the electrode and dipole spacing. This helps to get a feeling of which configurations provide information on which part of the model space. 
+
+- We introduced the coverage as tool to assess the  **spatial distribution of the sensitivity of all measurements across the model space**, which allows to **objectively evaluate the reliability** in different parts of the model.
+
+- We build a tool that allows us to **cut out areas** from the result plot that hold **low coverage**. However, this **tool is method-independent** and can therefore also be utilized with other quality evaluation parameters, such as the Depth of Investigation (DOI) and the model resolution. 
+
+- We constructed a tool that allows us to assess the quality in a 1D column anywhere on the model. This way, we selectively evaluate the model quality for a specific region on the model space. 
+::: 
+
