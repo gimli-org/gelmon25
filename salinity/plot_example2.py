@@ -3,6 +3,7 @@
 """
 Minimal working example for the pygimli workshop
 """
+import matplotlib
 import numpy as np
 import pygimli as pg
 
@@ -32,24 +33,14 @@ plotsalinity = {
     "cMap": "Spectral_r"
     }
 
-import matplotlib
-
 ax, cbar = pg.show(mesh, data=results['model'], **plotsalinity)
 ax.set_ylim(-30, 4)
 
 cmap = matplotlib.cm.get_cmap(plotsalinity['cMap'])
 norm = matplotlib.colors.Normalize(
     vmin=plotsalinity['cMin'],
-    vmax=plotsalinity['cMin'])
+    vmax=plotsalinity['cMax'])
 
-
-asdfasdf
-
-ax.
-
-for vi, val in enumerate(results['prior']:
-    kw['facecolor'] = cmap(norm(val[tag]))
-    ax.add_patch(Rectangle(
-        (val['xpos'] - width/2,
-            -val['depth'] - height/2),
-        width, height, **kw))
+for vi, val in enumerate(results['prior_data']):
+    x, y = results['pos_vec'][vi]
+    ax.plot(x, y, color=cmap(norm(val)), marker='o')

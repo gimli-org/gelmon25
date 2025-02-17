@@ -36,6 +36,7 @@ pg.show(mgr.paraDomain)
 # pg.show(mesh)
 
 # %% Part 4/5: Inversion
+# mgr.inv.setRegularization(2, correlationLengths=[Ix, Iz])
 mgr.inv.setRegularization(2, zWeight=0.1)
 inv_param = {'lam': 100,
              'startmodel': np.median(data["rhoa"])}
