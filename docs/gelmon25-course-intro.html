@@ -16,7 +16,7 @@
   <meta name="author" content="Nico Skibbe">
   <meta name="author" content="Nino Menzel">
   <meta name="dcterms.date" content="2025-02-17">
-  <title>quarto-inputfe1e779d0a3835f4</title>
+  <title>quarto-inputa07fd59d0dc34252</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -457,28 +457,10 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 
   <p class="date">2025-02-17</p>
 </section>
-<section id="pygimli-is-a-versatile-open-source-toolbox-with" class="slide level2">
-<h2><i class="fa-solid fa-toolbox" aria-label="toolbox"></i> py<strong>GIMLi</strong> is a versatile open-source toolbox with:</h2>
-<div class="columns">
-<div class="column noincremental" style="width:65%;">
-<ul>
-<li>management tools for <strong>structured and unstructured meshes</strong> in 2D &amp; 3D</li>
-<li>computationally efficient <strong>finite-element and finite-volume solvers</strong></li>
-<li><strong>various geophysical forward operators</strong>: ERT/IP, Traveltime, Gravimetry, Magnetics, SP, EM</li>
-<li>frameworks for <strong>constrained, joint and process-based inversions</strong> with <strong>region-specific regularization</strong></li>
-<li><strong>open-source, platform compatible</strong>, documented &amp; tested code</li>
-<li>suitability for <strong>teaching &amp; reproducible research</strong></li>
-<li>1.0 version published in 2017 in <em>Computers and Geosciences</em> <span class="citation" data-cites="Ruecker2017">(<a href="#/references" role="doc-biblioref" onclick="">Rücker et al., 2017</a>)</span> <span class="muted">(and among the <em>Most Downloaded</em> papers since, &gt; 430 citations, &gt; 120 uses in peer-reviewed papers)</span></li>
-</ul>
-</div><div class="column" style="width:30%;">
-<div class="r-stack">
-<p><img data-src="images/seismics.png"> <img data-src="images/3d_darcy.png"> <img data-src="images/global.png" style="width:85.0%"></p>
-</div>
-</div></div>
-</section>
 <section>
-<section id="pygimli" class="title-slide slide level1 center">
-<h1>pyGIMLi</h1>
+<section id="introducing-pygimli" class="title-slide slide level1 center">
+<h1>introducing pyGIMLi</h1>
+<p>is rather a box full of tools and not a specific tool</p>
 <p>aims at making:</p>
 <ul>
 <li>easy things easy</li>
@@ -486,15 +468,34 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 <li>everything transparent and reproducible</li>
 </ul>
 </section>
+<section id="pygimli-is-a-versatile-open-source-toolbox-with" class="slide level2">
+<h2><i class="fa-solid fa-toolbox" aria-label="toolbox"></i> py<strong>GIMLi</strong> is a versatile open-source toolbox with:</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li class="fragment">management tools for <strong>structured and unstructured meshes</strong> in 2D &amp; 3D</li>
+<li class="fragment">computationally efficient <strong>finite-element and finite-volume solvers</strong></li>
+<li class="fragment"><strong>various geophysical forward operators</strong>: ERT/IP, Traveltime, Gravimetry, Magnetics, SP, EM</li>
+<li class="fragment">frameworks for <strong>constrained, joint and process-based inversions</strong> with <strong>region-specific regularization</strong></li>
+<li class="fragment"><strong>open-source, platform compatible</strong>, documented &amp; tested code</li>
+<li class="fragment">suitability for <strong>teaching &amp; reproducible research</strong></li>
+<li class="fragment">v1.0 published in <em>Computers and Geosciences</em> <span class="citation" data-cites="Ruecker2017">(<a href="#/references" role="doc-biblioref" onclick="">Rücker et al., 2017</a>)</span> <span class="muted">(among <em>Most Downloaded</em> papers, &gt; 430 citations, &gt; 120 uses in peer-reviewed papers)</span></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<div class="r-stack">
+<p><img data-src="images/seismics.png"> <img data-src="images/3d_darcy.png"> <img data-src="images/global.png" style="width:85.0%"></p>
+</div>
+</div></div>
+</section>
 <section id="existing-tutorials" class="slide level2">
 <h2><i class="fa-solid fa-backward" aria-label="backward"></i> Existing tutorials</h2>
 <div class="columns">
-<div class="column noincremental" style="width:55%;">
+<div class="column" style="width:55%;">
 <ul>
-<li><a href="http://transform21.pygimli.org">Transform 2021</a>: creating <strong>geometries &amp; meshes</strong>, <strong>modeling</strong> PDEs, <strong>synthetic data</strong>, <strong>inversion</strong> (also with <strong>external forward operator</strong>).</li>
-<li><a href="http://transform22.pygimli.org">Transform 2022</a>: fundamental <code>pyGIMLi</code> objects (<code>Mesh</code>, <code>DataContainer</code>, matrix types, etc.), <strong>geostatistical</strong> vs.&nbsp;smoothness regularization, treatment of subsurface <strong>regions</strong>, adding <strong>prior data</strong>.</li>
-<li><a href="http://seg24.pygimli.org">SEG webinar 2024</a>: invert <strong>real-life 3D data</strong> <span class="citation" data-cites="Huebner2017">(<a href="#/references" role="doc-biblioref" onclick="">Hübner et al., 2017</a>)</span> to tweak your <strong>inversion beyond the standard</strong> practice.</li>
-<li><strong>Today</strong> we practise &amp; focus on ERT monitoring data processing &amp; inversion.</li>
+<li class="fragment"><a href="http://transform21.pygimli.org">Transform 2021</a>: creating <strong>geometries &amp; meshes</strong>, <strong>modeling</strong> PDEs, <strong>synthetic data</strong>, <strong>inversion</strong> (also with <strong>external forward operator</strong>).</li>
+<li class="fragment"><a href="http://transform22.pygimli.org">Transform 2022</a>: fundamental <code>pyGIMLi</code> objects (<code>Mesh</code>, <code>DataContainer</code>, matrix types, etc.), <strong>geostatistical</strong> vs.&nbsp;smoothness regularization, treatment of subsurface <strong>regions</strong>, adding <strong>prior data</strong>.</li>
+<li class="fragment"><a href="http://seg24.pygimli.org">SEG webinar 2024</a>: invert <strong>real-life 3D data</strong> <span class="citation" data-cites="Huebner2017">(<a href="#/references" role="doc-biblioref" onclick="">Hübner et al., 2017</a>)</span> to tweak your <strong>inversion beyond the standard</strong> practice.</li>
+<li class="fragment">Today we <strong>practise</strong> &amp; focus on <strong>ERT monitoring</strong> data processing &amp; inversion.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img data-src="images/youtube.jpg" style="width:90.0%"></p>
@@ -512,8 +513,7 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 <li><code>MultiFrameModelling</code> framework for temporally/spectrally/spatially constraints</li>
 <li><code>TimelapseERT</code> class with different strategies, e.g.&nbsp;<strong>4D inversion</strong></li>
 <li><strong>New examples</strong> on ERT (2D/3D crosshole, 3D surface, timelapse), IP, 3D magnetics</li>
-<li><strong>Improved website</strong>, i.e.&nbsp;fully upgraded to modern (pg&gt;1.2) style and moved to the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/"><em>pydata-sphinx-theme</em></a></li>
-<li>Many <strong>more convenience functions</strong> to simplify the code</li>
+<li>Many more <strong>convenience functions</strong> to simplify the code</li>
 <li>Many <strong>new papers using pyGIMLi</strong> (<a href="https://pygimli.org/publist.html" class="uri">https://pygimli.org/publist.html</a>)</li>
 </ul>
 </div>
@@ -563,6 +563,7 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 <li>array generation and synthetic model simulation</li>
 <li><code>ERTManager</code> for data inversion and model output</li>
 <li><code>ERTIPManager</code> for FD or TD Induced Polarization (IP)</li>
+<li><code>TimelapseERT</code> (and <code>CrossholeERT</code>) class for timelapse ERT</li>
 <li>spectral IP analysis in <code>pyBERT</code> module (<code>FDIP</code> and <code>TDIP</code>)</li>
 </ul>
 </section>
@@ -737,15 +738,15 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 <section id="the-infiltration-case-s.-also-seg-webinar" class="slide level2">
 <h2><i class="fa-solid fa-forward" aria-label="forward"></i> The infiltration case (s. also SEG webinar)</h2>
 <div class="columns">
-<div class="column noincremental" style="font-size: 120%;">
+<div class="column" style="font-size: 120%;">
 <ol type="1">
-<li>Load, process, visualize data</li>
-<li>Test different meshes</li>
-<li>Different regularizations</li>
-<li>Add prior information</li>
-<li>petrophysics</li>
-<li>Visualize results in 2D &amp; 3D</li>
-<li>Time-lapse inversion</li>
+<li class="fragment">Load, process, visualize data</li>
+<li class="fragment">Test different meshes</li>
+<li class="fragment">Different regularizations</li>
+<li class="fragment">Add prior information</li>
+<li class="fragment">petrophysics</li>
+<li class="fragment">Visualize results in 2D &amp; 3D</li>
+<li class="fragment">Time-lapse inversion</li>
 </ol>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -759,13 +760,13 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 <section id="the-heat-case-s.-also-talk" class="slide level2">
 <h2><i class="fa-solid fa-forward" aria-label="forward"></i> The heat case (s. also talk)</h2>
 <div class="columns">
-<div class="column noincremental" style="font-size: 120%;">
+<div class="column" style="font-size: 120%;">
 <ol type="1">
-<li>Load, and visualize data</li>
-<li>look at data timeseries</li>
-<li>select 2D subsets</li>
-<li>Visualize results in 2D &amp; 3D</li>
-<li>Time-lapse inversion</li>
+<li class="fragment">Load, and visualize data</li>
+<li class="fragment">look at data timeseries</li>
+<li class="fragment">select 2D subsets</li>
+<li class="fragment">Visualize results in 2D &amp; 3D</li>
+<li class="fragment">Time-lapse inversion</li>
 </ol>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -775,6 +776,88 @@ Nino Menzel <a href="https://orcid.org/0009-0000-5495-3235" class="quarto-title-
 </figure>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="image-appraisal" class="title-slide slide level1 center">
+<h1>Image appraisal</h1>
+
+</section>
+<section id="goals-of-this-part-of-the-workshop" class="slide level2">
+<h2><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Goals of this part of the workshop</h2>
+<div>
+<ul>
+<li class="fragment"><p>Get familiar with py<strong>GIMLi</strong>’s quality assessment tools</p></li>
+<li class="fragment"><p>Plot and examine sensitivities of single four-point configurations</p></li>
+<li class="fragment"><p>Utilize evaluation parameters as “cutoff” for the visualization</p></li>
+<li class="fragment"><p>Visualize image quality with depth (1D)</p></li>
+<li class="fragment"><p><strong>Advanced section</strong>: Depth of Investigation (Oldenburg and Li, 1999)</p></li>
+</ul>
+</div>
+</section>
+<section id="basic-terminology-jacobian-matrix" class="slide level2">
+<h2><i class="fa-solid fa-table" aria-label="table"></i> Basic terminology: Jacobian matrix:</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>For a set of transform equations: <span class="math display">\[y_{i} = y_{i}(x_{1}, x_{2}, \dots, x_{N})\]</span>, the Jacobian matrix is defined as: <span class="math display">\[\displaystyle{\displaylines{{\displaystyle {\textbf {J}}=\left\|J_{ik}\right\|=\left\|{\frac {\partial y_{i}}{\partial x_{k}}}\right\|}.}}\]</span></p></li>
+<li class="fragment"><p>measure of the change in the ith data point as the kth parameter is changed</p></li>
+<li class="fragment"><p>measure of how strongly data depend on a parameter -&gt; sensitivity</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Jacobi_draft.PNG"></p>
+</div></div>
+</section>
+<section id="basic-terminology-jacobian-matrix-1" class="slide level2">
+<h2><i class="fa-solid fa-table" aria-label="table"></i> Basic terminology: Jacobian matrix:</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Single row: <strong>sensitivity distribution of singular measurement</strong> over whole model space</li>
+<li class="fragment">Sum of single column: <strong>sum of sensitivities</strong> in a particular model cell (for all measurements of the dataset)</li>
+<li class="fragment">Starting point for <strong>sensitivity-based quality assessment methods</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Jacobi_draft_row.PNG"></p>
+</div></div>
+</section>
+<section id="basic-terminology-depth-of-investigation" class="slide level2">
+<h2><i class="fa-solid fa-arrow-up-from-ground-water" aria-label="arrow-up-from-ground-water"></i> Basic terminology: Depth of Investigation:</h2>
+<div>
+<ul>
+<li class="fragment"><p>generally refers to the depth of the model space, <strong>“below which surface data are insensitive to the value of the physical property”</strong></p></li>
+<li class="fragment"><p><strong>interpretation of features below this depth should be handled with care</strong>, since they might not be geologically feasible</p></li>
+<li class="fragment"><p>if we consider two inversion results that are carried out with <strong>two different, homogeneous reference models</strong> and their inverse models <span class="math inline">\(m_1\)</span> and <span class="math inline">\(m_2\)</span>, the DOI is computed by: <span class="math display">\[
+R(x, z)=\frac{m_{1}(x, z)-m_{2}(x, z)}{m_{1 r}-m_{2 r}}
+\]</span></p></li>
+<li class="fragment"><p><strong>R will approach 0</strong> where the <strong>data constrain the model</strong> -&gt; inversion does not significantly depend on the defined reference model, inverse model provides <strong>reliable information in those model areas</strong>.</p></li>
+</ul>
+</div>
+<div style="font-size: 75%;">
+<p>Oldenburg, D. W., &amp; Li, Y. (1999). Estimating depth of investigation in DC resistivity and IP surveys. <em>Geophysics</em>. Society of Exploration Geophysicists.</p>
+</div>
+</section>
+<section id="happy-hacking" class="slide level2">
+<h2><i class="fa-solid fa-forward" aria-label="forward"></i> Happy hacking!</h2>
+<div>
+<ol type="1">
+<li class="fragment">Extract and visualize single sensitivities</li>
+<li class="fragment">Plot coverage</li>
+<li class="fragment">Use coverage to adapt visualization inverse model</li>
+<li class="fragment">Examine image quality with depth at a specific location</li>
+<li class="fragment">Implement the DOI according to Oldenburg and Li (1999)</li>
+</ol>
+</div>
+</section>
+<section id="takeaway-messages" class="slide level2">
+<h2><i class="fa-solid fa-flag-checkered" aria-label="flag-checkered"></i> Takeaway messages:</h2>
+<div>
+<ul>
+<li class="fragment"><p>We visualized the <strong>sensitivities of single four point arrays</strong> on the model space and underlined <strong>differences in the distribution</strong> based on the electrode and dipole spacing. This helps to get a feeling of which configurations provide information on which part of the model space.</p></li>
+<li class="fragment"><p>We introduced the coverage as tool to assess the <strong>spatial distribution of the sensitivity of all measurements across the model space</strong>, which allows to <strong>objectively evaluate the reliability</strong> in different parts of the model.</p></li>
+<li class="fragment"><p>We build a tool that allows us to <strong>cut out areas</strong> from the result plot that hold <strong>low coverage</strong>. However, this <strong>tool is method-independent</strong> and can therefore also be utilized with other quality evaluation parameters, such as the Depth of Investigation (DOI) and the model resolution.</p></li>
+<li class="fragment"><p>We constructed a tool that allows us to assess the quality in a 1D column anywhere on the model. This way, we selectively evaluate the model quality for a specific region on the model space.</p></li>
+</ul>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>

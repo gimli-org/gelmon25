@@ -13,6 +13,8 @@ format:
     menu: false
     highlight-style: solarized
     code-line-numbers: false
+    width: 1200
+    height: 675
 author:
   - name: Thomas Günther
     orcid: 0000-0001-5409-0273
@@ -30,9 +32,19 @@ date: "Vienna, February 17, 2025 (GELMON workshop)"
 bibliography: refs.bib
 csl: apa.csl
 ---
+# introducing pyGIMLi 
+
+is rather a box full of tools and not a specific tool
+
+aims at making:
+
+- easy things easy
+- hard things possible
+- everything transparent and reproducible
+
 ## {{< fa toolbox >}} py**GIMLi** is a versatile open-source toolbox with:
 ::: {.columns}
-::: {.column width="65%" .noincremental}
+::: {.column width="65%" .incremental}
 - management tools for **structured and unstructured meshes** in 2D & 3D
 - computationally efficient **finite-element and finite-volume solvers**
 - **various geophysical forward operators**: ERT/IP, Traveltime, Gravimetry, Magnetics, SP, EM
@@ -40,7 +52,7 @@ csl: apa.csl
 process-based inversions** with **region-specific regularization**
 - **open-source, platform compatible**, documented & tested code
 - suitability for **teaching & reproducible research**
-- 1.0 version published in 2017 in *Computers and Geosciences* [@Ruecker2017] [(and among the *Most Downloaded* papers since, > 430 citations, > 120 uses in peer-reviewed papers)]{.muted}
+- v1.0 published in *Computers and Geosciences* [@Ruecker2017] [(among *Most Downloaded* papers, > 430 citations, > 120 uses in peer-reviewed papers)]{.muted}
 :::
 ::: {.column width="30%"}
 ::: {.r-stack}
@@ -51,22 +63,14 @@ process-based inversions** with **region-specific regularization**
 :::
 :::
 
-# pyGIMLi 
-
-aims at making:
-
-- easy things easy
-- hard things possible
-- everything transparent and reproducible
-
 ## {{< fa backward >}} Existing tutorials
 
 ::: {.columns}
-::: {.column .noincremental width="55%"}
+::: {.column .incremental width="55%"}
 - [Transform 2021](http://transform21.pygimli.org): creating **geometries & meshes**, **modeling** PDEs, **synthetic data**, **inversion** (also with **external forward operator**).
 - [Transform 2022](http://transform22.pygimli.org):  fundamental `pyGIMLi` objects (`Mesh`, `DataContainer`, matrix types, etc.), **geostatistical** vs. smoothness regularization, treatment of subsurface **regions**, adding **prior data**.
 - [SEG webinar 2024](http://seg24.pygimli.org): invert **real-life 3D data** [@Huebner2017] to tweak your **inversion beyond the standard** practice. 
-- **Today** we practise & focus on ERT monitoring data processing & inversion.
+- Today we **practise** & focus on **ERT monitoring** data processing & inversion.
 :::
 ::: {.column width="45%"}
 ![](images/youtube.jpg){width=90%}
@@ -84,8 +88,7 @@ aims at making:
 - `MultiFrameModelling` framework for temporally/spectrally/spatially constraints
 - `TimelapseERT` class with different strategies, e.g. **4D inversion**
 - **New examples** on ERT (2D/3D crosshole, 3D surface, timelapse), IP, 3D magnetics
-- **Improved website**, i.e. fully upgraded to modern (pg>1.2) style and moved to the [*pydata-sphinx-theme*](https://pydata-sphinx-theme.readthedocs.io/en/stable/)
-- Many **more convenience functions** to simplify the code
+- Many more **convenience functions** to simplify the code
 - Many **new papers using pyGIMLi** (<https://pygimli.org/publist.html>)
 :::
 
@@ -132,6 +135,7 @@ https://github.com/gimli-org/gimli/releases
 - array generation and synthetic model simulation
 - `ERTManager` for data inversion and model output
 - `ERTIPManager` for FD or TD Induced Polarization (IP)
+- `TimelapseERT` (and `CrossholeERT`) class for timelapse ERT
 - spectral IP analysis in `pyBERT` module (`FDIP` and `TDIP`)
 
 ## {{< fa code >}} The `TimelapseERT` class
@@ -220,7 +224,7 @@ You can also visit <https://colab.research.google.com>, open an empty notebook a
 
 ## {{< fa forward >}} The infiltration case (s. also SEG webinar)
 ::: {.columns}
-::: {.column width="50%" style="font-size: 120%;" .noincremental}
+::: {.column width="50%" style="font-size: 120%;" .incremental}
 
 1. Load, process, visualize data
 1. Test different meshes
@@ -237,7 +241,7 @@ You can also visit <https://colab.research.google.com>, open an empty notebook a
 
 ## {{< fa forward >}} The heat case (s. also talk)
 ::: {.columns}
-::: {.column width="50%" style="font-size: 120%;" .noincremental}
+::: {.column width="50%" style="font-size: 120%;" .incremental}
 
 1. Load, and visualize data
 1. look at data timeseries
@@ -249,6 +253,90 @@ You can also visit <https://colab.research.google.com>, open an empty notebook a
 ![Temperature distribution crosshole ERT](images/heat-simple.png){width="100%"}
 :::
 :::
+
+# Image appraisal
+## {{< fa bullseye >}} Goals of this part of the workshop 
+
+::: {.incremental}
+-   Get familiar with py**GIMLi**'s quality assessment tools
+
+-   Plot and examine sensitivities of single four-point configurations
+
+-   Utilize evaluation parameters as "cutoff" for the visualization
+
+-   Visualize image quality with depth (1D)
+
+-   **Advanced section**: Depth of Investigation (Oldenburg and Li, 1999)
+:::
+
+
+
+## {{< fa table >}} Basic terminology: Jacobian matrix:
+::: {.columns}
+::: {.column width="50%" .incremental}
+-   For a set of transform equations: $$y_{i} = y_{i}(x_{1}, x_{2}, \dots, x_{N})$$, the Jacobian matrix is defined as: $$\displaystyle{\displaylines{{\displaystyle {\textbf {J}}=\left\|J_{ik}\right\|=\left\|{\frac {\partial y_{i}}{\partial x_{k}}}\right\|}.}}$$
+
+-  measure of the change in the ith data point as the kth parameter is changed 
+-  measure of how strongly data depend on a parameter -> sensitivity 
+
+:::
+::: {.column width="50%" .incremental}
+![](images/Jacobi_draft.PNG)
+:::
+:::
+
+## {{< fa table >}} Basic terminology: Jacobian matrix:
+::: {.columns}
+::: {.column width="50%" .incremental}
+-   Single row: **sensitivity distribution of singular measurement** over whole model space
+-   Sum of single column: **sum of sensitivities** in a particular model cell (for all measurements of the dataset)
+-   Starting point for **sensitivity-based quality assessment methods** 
+
+:::
+::: {.column width="50%" .incremental}
+![](images/Jacobi_draft_row.PNG)
+:::
+:::
+
+
+## {{< fa arrow-up-from-ground-water >}} Basic terminology: Depth of Investigation:
+::: {.incremental}
+-   generally refers to the depth of the model space, **"below which surface data are insensitive to the value of the physical property"** 
+-   **interpretation of features below this depth should be handled with care**, since they might not be geologically feasible
+
+-   if we consider two inversion results that are carried out with **two different, homogeneous reference models** and their inverse models $m_1$ and $m_2$, the DOI is computed by:
+$$
+R(x, z)=\frac{m_{1}(x, z)-m_{2}(x, z)}{m_{1 r}-m_{2 r}}
+$$
+
+-   **R will approach 0** where the **data constrain the model**
+-> inversion does not significantly depend on the defined reference model, inverse model provides **reliable information in those model areas**.
+:::
+
+::: {style="font-size: 75%;" .incremental}
+Oldenburg, D. W., & Li, Y. (1999). Estimating depth of investigation in DC resistivity and IP surveys. _Geophysics_. Society of Exploration Geophysicists.
+:::
+
+
+## {{< fa forward >}} Happy hacking!
+::: {.incremental}
+1. Extract and visualize single sensitivities
+2. Plot coverage
+3. Use coverage to adapt visualization inverse model
+4. Examine image quality with depth at a specific location
+5. Implement the DOI according to Oldenburg and Li (1999)
+:::
+
+## {{< fa flag-checkered >}} Takeaway messages:
+:::{.incremental}
+- We visualized the **sensitivities of single four point arrays** on the model space and underlined **differences in the distribution** based on the electrode and dipole spacing. This helps to get a feeling of which configurations provide information on which part of the model space. 
+
+- We introduced the coverage as tool to assess the  **spatial distribution of the sensitivity of all measurements across the model space**, which allows to **objectively evaluate the reliability** in different parts of the model.
+
+- We build a tool that allows us to **cut out areas** from the result plot that hold **low coverage**. However, this **tool is method-independent** and can therefore also be utilized with other quality evaluation parameters, such as the Depth of Investigation (DOI) and the model resolution. 
+
+- We constructed a tool that allows us to assess the quality in a 1D column anywhere on the model. This way, we selectively evaluate the model quality for a specific region on the model space. 
+::: 
 
 ## References
 
